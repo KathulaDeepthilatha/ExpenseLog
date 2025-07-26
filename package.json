@@ -1,0 +1,29 @@
+{
+  "name": "expenselog",
+  "version": "1.0.0",
+  "description": "Expense Log to note all the expenses on the month",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KathulaDeepthilatha/ExpenseLog.git"
+  },
+  "keywords": [
+    "Expense"
+  ],
+  "author": "Deepthi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KathulaDeepthilatha/ExpenseLog/issues"
+  },
+  "homepage": "https://github.com/KathulaDeepthilatha/ExpenseLog#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
