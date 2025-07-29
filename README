@@ -1,0 +1,41 @@
+First I started with installing npm - "npm init" 
+which will executes some promts like - app name, licence, keywords, author etc.
+And then I installed parcel - "npm i -D parcel"
+Next react and react dom - "npm i react react-dom"
+I created a file index.html which is the main file.
+Running application by using the command - "npx parccel index.html"
+Next created App.js as my entry file.
+I added scripts to start application simple - 
+ "scripts": {
+    "start": "parcel index.html",
+    "test": "jest"
+}
+I connected the React app's entry file (app.js) to the HTML file (index.html) using a <script> tag with type="module".
+Inside index.html, I created a <div id="root"></div>, and in app.js, I used ReactDOM.createRoot(document.getElementById("root")) to render my entire React app inside that div.
+Then I installed tailwindcss which was version3. I am not getting how to use current tailwindcss. 
+The command for that installation is - "npm i tailwindcss@3 postcss autoprefixer"
+Next initiating the file using - "npx tailwindcss init -p"
+postcss.config,js looks like - module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+And in the tailwindcss I made some changes - /** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./index.html", // If you have a main HTML file in the root
+    "./src/**/*.{html,js,jsx}", - Here, I just deleted the remaining file structure end points.
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+I created components names as - FinancialSummary
+                              - QuickEntry
+                              - MonthlySetup
+                              - CreditCard
+                              - History
+In app.js using state variables i created tabs named with component names to display the content of the related tab when I click. 
+
