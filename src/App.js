@@ -13,15 +13,15 @@ const App = () => {
   return (
     <div className="app-container">
       <div className="min-h-screen p-4">
-        <h1 className="text-center text-4xl font-bold text-400 mt-10">
+        <h1 className="text-center text-4xl font-bold text-400 mt-1">
           Expense Tracker
         </h1>
         <FinancialSummary />
 
-        <div className="flex justify-between mt-6 p-3 bg-gray-100 rounded-md mx-auto max-w-2xl text-slate-500 font-semibold">
+        <div className="flex justify-between mt-6 p-2 bg-gray-100 rounded-md mx-auto max-w-2xl text-slate-500 font-semibold">
           <button
             onClick={() => setActiveTab("add")}
-            className={`flex-1 px-4 py-2 mx-2 rounded-md
+            className={`flex-1 px-4 py-2 mx-1 rounded-md
                 ${activeTab === "add" ? "bg-white text-black" : ""}`}
           >
             Add
@@ -49,7 +49,7 @@ const App = () => {
           </button>
         </div>
 
-        <div className="mt-6 p-3 bg-gray-100 rounded-md m-auto max-w-2xl">
+        <div className="bg-white border border-gray-300 rounded-xl shadow-md p-6 m-auto mt-2 max-w-2xl">
           {activeTab === "add" && <QuickEntry />}
           {activeTab === "monthlySetUp" && <MonthlySetUp />}
           {activeTab === "credit" && <CreditCard />}
