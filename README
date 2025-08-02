@@ -38,4 +38,6 @@ I created components names as - FinancialSummary
                               - CreditCard
                               - History
 In app.js using state variables i created tabs named with component names to display the content of the related tab when I click. 
-
+Implemented QuickEntry tab and CreditCard tab.
+Cretaed a Transactionfor which is reused in both QuickEntry and CreditCard tabs. I used props, useState, tailwindCss.
+Now, Monthly setup - 
