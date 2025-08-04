@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Pencil, Trash2 } from "lucide-react";
+<<<<<<< HEAD
 
 const MonthlySetUp = () => {
   const [recurringItems, setRecurringItems] = useState([]);
@@ -15,6 +16,23 @@ const MonthlySetUp = () => {
   const handleAdd = () => {
     if (!newItem.description || !newItem.amount) return;
 
+=======
+
+const MonthlySetup = () => {
+  const [recurringItems, setRecurringItems] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+  const [newItem, setNewItem] = useState({
+    description: "",
+    amount: "",
+    paymentMethod: "UPI",
+  });
+  const [editItemId, setEditItemId] = useState(null);
+
+  const handleAdd = () => {
+    if (!newItem.description || !newItem.amount) return;
+
+>>>>>>> 2712b0f1cd36813fee65730bef3ad4c4c0ce9eca
     const itemToAdd = {
       ...newItem,
       id: Date.now(),
@@ -43,9 +61,13 @@ const MonthlySetUp = () => {
           ? {
               ...item,
               paymentMethod:
+<<<<<<< HEAD
                 options[
                   (options.indexOf(item.paymentMethod) + 1) % options.length
                 ],
+=======
+                options[(options.indexOf(item.paymentMethod) + 1) % options.length],
+>>>>>>> 2712b0f1cd36813fee65730bef3ad4c4c0ce9eca
             }
           : item
       )
@@ -65,9 +87,13 @@ const MonthlySetUp = () => {
   };
 
   const handleDelete = (id) => {
+<<<<<<< HEAD
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this item?"
     );
+=======
+    const confirmDelete = window.confirm("Are you sure you want to delete this item?");
+>>>>>>> 2712b0f1cd36813fee65730bef3ad4c4c0ce9eca
     if (confirmDelete) {
       setRecurringItems((prev) => prev.filter((item) => item.id !== id));
       setSelectedItems((prev) => prev.filter((item) => item !== id));
@@ -80,10 +106,14 @@ const MonthlySetUp = () => {
 
       {/* Recurring Items List */}
       {recurringItems.map((item) => (
+<<<<<<< HEAD
         <div
           key={item.id}
           className="flex items-center mb-2 border p-2 rounded-md"
         >
+=======
+        <div key={item.id} className="flex items-center mb-2 border p-2 rounded-md">
+>>>>>>> 2712b0f1cd36813fee65730bef3ad4c4c0ce9eca
           <input
             type="checkbox"
             checked={selectedItems.includes(item.id)}
@@ -109,6 +139,7 @@ const MonthlySetUp = () => {
               onBlur={() => setEditItemId(null)}
             />
           ) : (
+<<<<<<< HEAD
             <div className="text-sm font-semibold mr-2 block">
               ₹{item.amount}
             </div>
@@ -129,6 +160,20 @@ const MonthlySetUp = () => {
         </div>
       ))}
 
+=======
+            <div className="text-sm font-semibold mr-2 block">₹{item.amount}</div>
+          )}
+
+          <button onClick={() => handleEdit(item.id)} className="text-gray-600 hover:text-black mr-2">
+            <Pencil size={16} />
+          </button>
+          <button onClick={() => handleDelete(item.id)} className="text-red-600 hover:text-red-800">
+            <Trash2 size={16} />
+          </button>
+        </div>
+      ))}
+
+>>>>>>> 2712b0f1cd36813fee65730bef3ad4c4c0ce9eca
       {/* Add to This Month Button */}
       <button
         disabled={selectedItems.length === 0}
@@ -144,6 +189,7 @@ const MonthlySetUp = () => {
       {/* Add New Recurring Item Section */}
       {showForm ? (
         <div className="mt-4 border-t pt-4">
+<<<<<<< HEAD
           <label className="flex flex-col">
             <span className="font-semibold">Description</span>
             <input
@@ -182,6 +228,32 @@ const MonthlySetUp = () => {
               <option value="Credit Card">Credit Card</option>
             </select>
           </label>
+=======
+          <input
+            type="text"
+            placeholder="Description"
+            value={newItem.description}
+            onChange={(e) => setNewItem({ ...newItem, description: e.target.value })}
+            className="w-full mb-2 border px-2 py-1 rounded"
+          />
+          <input
+            type="number"
+            placeholder="Amount"
+            value={newItem.amount}
+            onChange={(e) => setNewItem({ ...newItem, amount: e.target.value })}
+            className="w-full mb-2 border px-2 py-1 rounded"
+          />
+          <select
+            value={newItem.paymentMethod}
+            onChange={(e) => setNewItem({ ...newItem, paymentMethod: e.target.value })}
+            className="w-full mb-2 border px-2 py-1 rounded"
+          >
+            <option value="UPI">UPI</option>
+            <option value="Cash">Cash</option>
+            <option value="Credit Card">Credit Card</option>
+          </select>
+
+>>>>>>> 2712b0f1cd36813fee65730bef3ad4c4c0ce9eca
           <div className="flex justify-between">
             <button
               onClick={handleAdd}
@@ -200,13 +272,23 @@ const MonthlySetUp = () => {
       ) : (
         <button
           onClick={() => setShowForm(true)}
+<<<<<<< HEAD
           className="mt-4 w-full py-2 bg-white border text-black rounded"
         >
          <span className="text-2xl">+</span> Add New Recurring Item
+=======
+          className="mt-4 w-full py-2 bg-black text-white rounded hover:bg-black"
+        >
+          Add New Recurring Item
+>>>>>>> 2712b0f1cd36813fee65730bef3ad4c4c0ce9eca
         </button>
       )}
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default MonthlySetUp;
+=======
+export default MonthlySetup;
+>>>>>>> 2712b0f1cd36813fee65730bef3ad4c4c0ce9eca
