@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import FinancialSummary from "./components/FinancialSummary";
 import "/index.css";
 import QuickEntry from "./components/QuickEntry";
-import MonthlySetUp from "./components/MonthlySetUp";
+import MonthlySetup from "./components/MonthlySetUp";
 import CreditCard from "./components/CreditCard";
 import History from "./components/History";
 
@@ -27,18 +27,18 @@ const App = () => {
             Add
           </button>
           <button
-            onClick={() => setActiveTab("monthlySetUp")}
-            className={`flex-1 px-4 py-2 mx-2 rounded-md 
-                ${activeTab === "monthlySetUp" ? "bg-white text-black" : ""}`}
-          >
-            Monthly
-          </button>
-          <button
             onClick={() => setActiveTab("credit")}
             className={`flex-1 px-4 py-2 mx-2 rounded-md  
                 ${activeTab === "credit" ? "bg-white text-black" : ""}`}
           >
-            Credit
+            Credit Card
+          </button>
+          <button
+            onClick={() => setActiveTab("monthlySetup")}
+            className={`flex-1 px-4 py-2 mx-2 rounded-md 
+                ${activeTab === "monthlySetup" ? "bg-white text-black" : ""}`}
+          >
+            Monthly
           </button>
           <button
             onClick={() => setActiveTab("history")}
@@ -51,7 +51,7 @@ const App = () => {
 
         <div className="bg-white border border-gray-300 rounded-xl shadow-md p-6 m-auto mt-2 max-w-2xl">
           {activeTab === "add" && <QuickEntry />}
-          {activeTab === "monthlySetUp" && <MonthlySetUp />}
+          {activeTab === "monthlySetup" && <MonthlySetup />}
           {activeTab === "credit" && <CreditCard />}
           {activeTab === "history" && <History />}
         </div>

@@ -11,7 +11,7 @@ const QuickEntry = () => {
   return (
     <div className="flex flex-col p-2">
       <h1 className="text-2xl mb-6  font-semibold">
-        <span className="text-4xl">+</span> Quick Entry
+        <span className="text-4xl">+</span> UPI/Cash
       </h1>
       <label className="flex items-center gap-2 mb-1 font-semibold cursor-pointer">
         <input
