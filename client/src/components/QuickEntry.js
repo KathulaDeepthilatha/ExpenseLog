@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TransactionForm from "./TransactionForm";
 
-const QuickEntry = () => {
+const QuickEntry = ({ onTransactionAdded }) => {
   const [entryType, setEntryType] = useState("expense");
 
   const handleTypeChange = (event) => {
@@ -33,8 +33,8 @@ const QuickEntry = () => {
         />
         Credit
       </label>
-      {entryType === "expense" && <TransactionForm buttonText="Add Expense" />}
-      {entryType === "credit" && <TransactionForm buttonText="Add Credit" />}
+      {entryType === "expense" && <TransactionForm buttonText="Add Expense" type="expense" paymentMethod="UPI" onTransactionAdded={onTransactionAdded} />}
+      {entryType === "credit" && <TransactionForm buttonText="Add Credit" type="credit" paymentMethod="UPI" onTransactionAdded={onTransactionAdded} />}
     </div>
   );
 };

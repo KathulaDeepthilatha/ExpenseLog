@@ -2,3 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+select {
+  /* This property affects the color of the selection highlight */
+  accent-color: black;
+  /* For some browsers, you might need to use -webkit- and -moz- prefixes */
+  -webkit-accent-color: black;
+  -moz-accent-color: black;
+}

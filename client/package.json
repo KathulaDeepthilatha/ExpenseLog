@@ -23,11 +23,13 @@
   "homepage": "https://github.com/KathulaDeepthilatha/ExpenseLog#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.21",
+    "buffer": "^6.0.3",
     "parcel": "^2.15.4",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17"
   },
   "dependencies": {
+    "axios": "^1.11.0",
     "lucide-react": "^0.536.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
