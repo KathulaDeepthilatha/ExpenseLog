@@ -40,4 +40,26 @@ I created components names as - FinancialSummary
 In app.js using state variables i created tabs named with component names to display the content of the related tab when I click. 
 Implemented QuickEntry tab and CreditCard tab.
 Cretaed a Transactionfor which is reused in both QuickEntry and CreditCard tabs. I used props, useState, tailwindCss.
-Now, Monthly setup - 
+All tabs are working properly. 
+Backend integration also completed.
+
+
+
+Now, Remaining implementation - What i need to implement?
+
+- popups, alerts
+- notifications
+- add new recurring button modify cheyali
+- payment method type recurring list lo modify cheyali
+- date ki brackets teseyali
+- Scanning reciepts to autofill exxpenses
+- categories add chedam(optional) 
+- ai ni use cheyali 
+- theme kuda marchali (dark/light)
+- 
+
+
+
+
+
+
