@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = process.env.API_URL;
+console.log("API URL:", API_URL);
 
-console.log("API URL:", API_URL); 
 
 const TransactionForm = ({ buttonText, type, paymentMethod, onTransactionAdded }) => {
   const [description, setDescription] = useState("");
