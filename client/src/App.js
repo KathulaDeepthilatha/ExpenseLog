@@ -7,6 +7,7 @@ import MonthlySetup from "./components/MonthlySetUp";
 import CreditCard from "./components/CreditCard";
 import History from "./components/History";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { API_URL } from "./api";
 
 const App = () => {
   // Get active tab from localStorage, default to 'add' if not found
@@ -43,11 +44,11 @@ const App = () => {
       const year = date.getFullYear();
       const month = date.getMonth() + 1;
       
-      const summaryResponse = await fetch(`http://localhost:3001/api/summary?year=${year}&month=${month}`);
+      const summaryResponse = await fetch(`${API_URL}/api/summary?year=${year}&month=${month}`);
       const summaryData = await summaryResponse.json();
       setSummary(summaryData);
 
-      const transactionsResponse = await fetch(`http://localhost:3001/api/transactions?year=${year}&month=${month}`);
+      const transactionsResponse = await fetch(`${API_URL}/api/transactions?year=${year}&month=${month}`);
       const transactionsData = await transactionsResponse.json();
       setTransactions(transactionsData);
       

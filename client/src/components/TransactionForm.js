@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { API_URL } from "./api";
+
 
 const TransactionForm = ({ buttonText, type, paymentMethod, onTransactionAdded }) => {
   const [description, setDescription] = useState("");
@@ -21,7 +23,7 @@ const TransactionForm = ({ buttonText, type, paymentMethod, onTransactionAdded }
     };
 
     try {
-      await fetch('http://localhost:3001/api/transactions', {
+      await fetch(`${API_URL}/api/transactions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newTransaction),

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Pencil, Trash2, Save } from "lucide-react";
+import { API_URL } from "./api";
+
 
 const History = ({ transactions, onTransactionAdded }) => {
     const [editTransactionId, setEditTransactionId] = useState(null);
@@ -32,7 +34,7 @@ const History = ({ transactions, onTransactionAdded }) => {
 
     const handleSaveClick = async (id) => {
         try {
-            await fetch(`http://localhost:3001/api/transactions/${id}`, {
+            await fetch(`${API_URL}/api/transactions/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -49,7 +51,7 @@ const History = ({ transactions, onTransactionAdded }) => {
     const handleDeleteClick = async (id) => {
         if (window.confirm("Are you sure you want to delete this transaction?")) {
             try {
-                await fetch(`http://localhost:3001/api/transactions/${id}`, {
+                await fetch(`${API_URL}/api/transactions/${id}`, {
                     method: 'DELETE',
                 });
                 onTransactionAdded();
