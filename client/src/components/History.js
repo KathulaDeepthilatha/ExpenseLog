@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Pencil, Trash2, Save } from "lucide-react";
-import { API_URL } from "./api";
+const API_URL = import.meta.env.VITE_API_URL;
 
 
 const History = ({ transactions, onTransactionAdded }) => {
