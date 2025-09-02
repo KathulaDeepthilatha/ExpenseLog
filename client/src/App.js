@@ -136,13 +136,13 @@ const App = () => {
           >
             Credit Card
           </button>
-          <button
+          {/* <button
             onClick={() => setActiveTab("monthlySetup")}
             className={`flex-1 px-4 py-2 mx-2 rounded-md 
                 ${activeTab === "monthlySetup" ? "bg-white text-black" : ""}`}
           >
             Monthly
-          </button>
+          </button> */}
           <button
             onClick={() => setActiveTab("history")}
             className={`flex-1 px-4 py-2 mx-2 rounded-md  
