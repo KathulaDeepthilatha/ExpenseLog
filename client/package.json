@@ -2,12 +2,14 @@
   "name": "expenselog",
   "version": "1.0.0",
   "description": "Expense Log to note all the expenses on the month",
-  "scripts": {
-    "start": "parcel index.html --no-cache",
-    "test": "jest",
-    "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
-    "watch:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
-  },
+ "scripts": {
+  "start": "parcel index.html --no-cache",
+  "dev": "parcel index.html --open",
+  "build": "parcel build index.html",
+  "test": "jest",
+  "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+  "watch:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KathulaDeepthilatha/ExpenseLog.git"
