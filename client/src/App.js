@@ -7,7 +7,7 @@ import MonthlySetup from "./components/MonthlySetUp";
 import CreditCard from "./components/CreditCard";
 import History from "./components/History";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { API_URL } from "./api";
+import { API_URL } from "../api";
 
 const App = () => {
   // Get active tab from localStorage, default to 'add' if not found
