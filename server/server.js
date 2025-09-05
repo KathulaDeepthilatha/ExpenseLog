@@ -20,10 +20,10 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 // Import routes
 const transactionRoutes = require('./routes/transactionRoutes');
-const recurringItemRoutes = require('./routes/recurringItemRoutes');
+// const recurringItemRoutes = require('./routes/recurringItemRoutes');
 // Use routes
 app.use('/api/transactions', transactionRoutes);
-app.use('/api/recurring-items', recurringItemRoutes);
+// app.use('/api/recurring-items', recurringItemRoutes);
 app.use('/api', require('./routes/summaryRoutes'));
 
 // Start the server
