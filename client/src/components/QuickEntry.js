@@ -10,9 +10,6 @@ const QuickEntry = ({ onTransactionAdded }) => {
 
   return (
     <div className="flex flex-col p-2">
-      <h1 className="text-2xl mb-6  font-semibold">
-        <span className="text-4xl">+</span> UPI/Cash
-      </h1>
       <label className="flex items-center gap-2 mb-1 font-semibold cursor-pointer">
         <input
           type="radio"
@@ -21,7 +18,7 @@ const QuickEntry = ({ onTransactionAdded }) => {
           onChange={handleTypeChange}
           className="accent-black"
         />
-        Expense
+        Money Sent
       </label>
       <label className="flex items-center gap-2 font-semibold cursor-pointer">
         <input
@@ -31,7 +28,7 @@ const QuickEntry = ({ onTransactionAdded }) => {
           onChange={handleTypeChange}
           className="accent-black"
         />
-        Credit
+        Money Received
       </label>
       {entryType === "expense" && <TransactionForm buttonText="Add Expense" type="expense" paymentMethod="UPI" onTransactionAdded={onTransactionAdded} />}
       {entryType === "credit" && <TransactionForm buttonText="Add Credit" type="credit" paymentMethod="UPI" onTransactionAdded={onTransactionAdded} />}

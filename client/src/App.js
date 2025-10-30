@@ -129,7 +129,7 @@ const App = () => {
             className={`flex-1 px-4 py-2 mx-1 rounded-md
                 ${activeTab === "add" ? "bg-white text-black" : ""}`}
           >
-            Add
+            UPI and Cash
           </button>
           <button
             onClick={() => setActiveTab("credit")}
