@@ -150,7 +150,7 @@ const App = () => {
             className={`flex-1 px-4 py-2 mx-2 rounded-md  
                 ${activeTab === "history" ? "bg-white text-black" : ""}`}
           >
-            History
+            Transaction History
           </button>
         </div>
 
