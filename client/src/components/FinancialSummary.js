@@ -16,17 +16,17 @@ const FinancialSummary = ({ summary }) => {
       </div>
       
       <div className="flex justify-between items-center mb-2">
-        <p>Total Spent:</p>
+        <p>Total Money Spent:</p>
         <p className="font-semibold text-lg text-red-500">₹{formatAmount(summary.totalSpent)}</p>
       </div>
       
       <div className="flex justify-between items-center mb-2">
-        <p>Credits Added:</p>
+        <p>Total Money Received:</p>
         <p className="font-semibold text-lg text-blue-500">₹{formatAmount(summary.creditsAdded)}</p>
       </div>
       
       <div className="flex justify-between items-center">
-        <p>Outstanding CC:</p>
+        <p>Money Spent on Credit Card:</p>
         <p className="font-semibold text-lg text-orange-500">₹{formatAmount(summary.outstandingCc)}</p>
       </div>
     </div>
