@@ -7,7 +7,7 @@ const QuickEntry = ({ onTransactionAdded }) => {
   const handleTypeChange = (event) => {
     setEntryType(event.target.value);
   };
-
+// Expense log
   return (
     <div className="flex flex-col p-2">
       <label className="flex items-center gap-2 mb-1 font-semibold cursor-pointer">
