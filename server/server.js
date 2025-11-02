@@ -7,11 +7,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors({
-  origin: ['https://expenselogapp.netlify.app/', 'http://localhost:3000'], // both for safety
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB

@@ -7,7 +7,7 @@ import MonthlySetup from "./components/MonthlySetUp";
 import CreditCard from "./components/CreditCard";
 import History from "./components/History";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { API_URL } from "./api";
+const API_URL = process.env.API_URL;
 
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
     const savedTab = localStorage.getItem('activeTab');
     return savedTab || 'add';
   });
-
+  
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [summary, setSummary] = useState({
     availableBalance: 0,
@@ -35,26 +35,26 @@ const App = () => {
     month: 'long',
     year: 'numeric',
   });
-
-  const isCurrentMonth =
+  
+  const isCurrentMonth = 
     currentMonth.getMonth() === new Date().getMonth() &&
     currentMonth.getFullYear() === new Date().getFullYear();
 
-  const fetchData = async (year, month) => {
+  const fetchData = async (date) => {
     try {
-      const res = await fetch(`${API_URL}api/summary?year=${year}&month=${month}`);
-      if (!res.ok) {
-        const text = await res.text(); // may be "Not Found" or HTML
-        throw new Error(`Fetch error ${res.status}: ${text}`);
-      }
-      // ok -> parse JSON
-      const data = await res.json();
-      // ... use data ...
-      return data;
-    } catch (err) {
-      console.error('Failed to fetch data:', err);
-      // update UI state to show error/fallback as needed
-      return null;
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      
+      const summaryResponse = await fetch(`${API_URL}/api/summary?year=${year}&month=${month}`);
+      const summaryData = await summaryResponse.json();
+      setSummary(summaryData);
+
+      const transactionsResponse = await fetch(`${API_URL}/api/transactions?year=${year}&month=${month}`);
+      const transactionsData = await transactionsResponse.json();
+      setTransactions(transactionsData);
+      
+    } catch (error) {
+      console.error("Failed to fetch data:", error);
     }
   };
 
@@ -65,7 +65,7 @@ const App = () => {
   const handleTransactionAdded = () => {
     fetchData(currentMonth);
   };
-
+  
   const handlePreviousMonth = () => {
     setCurrentMonth(prevMonth => {
       const newDate = new Date(prevMonth);
@@ -86,14 +86,14 @@ const App = () => {
   const goToCurrentMonth = () => {
     setCurrentMonth(new Date());
   };
-
+  
   return (
     <div className="app-container">
       <div className="min-h-screen p-4">
         <h1 className="text-center text-4xl font-bold text-400 mt-1">
           Expense Tracker
         </h1>
-
+        
         <div className="flex items-center justify-center my-4">
           <button onClick={handlePreviousMonth} className="p-2 rounded-md hover:bg-gray-200">
             <ChevronLeft />
@@ -101,17 +101,17 @@ const App = () => {
           <div className="text-xl font-semibold mx-4 w-32 text-center">
             {monthYearString}
           </div>
-          <button
-            onClick={handleNextMonth}
+          <button 
+            onClick={handleNextMonth} 
             className={`p-2 rounded-md ${isCurrentMonth ? 'text-gray-400 cursor-not-allowed' : 'hover:bg-gray-200'}`}
             disabled={isCurrentMonth}
           >
             <ChevronRight />
           </button>
         </div>
-
+        
         <div className="text-center">
-          <button
+          <button 
             onClick={goToCurrentMonth}
             disabled={isCurrentMonth}
             className={`px-4 py-2 text-sm rounded-md font-semibold transition-colors
@@ -120,7 +120,7 @@ const App = () => {
             Go to Current Month
           </button>
         </div>
-
+        
         <FinancialSummary summary={summary} />
 
         <div className="flex justify-between mt-6 p-2 bg-gray-100 rounded-md mx-auto max-w-2xl text-slate-500 font-semibold">

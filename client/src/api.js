@@ -1,1 +1,1 @@
-export const API_URL = "https://expenselog-backend.onrender.com/";
+export const API_URL = process.env.API_URL;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import {API_URL} from "../api";
+const API_URL = process.env.API_URL;
+console.log("API URL:", API_URL);
 
 
 const TransactionForm = ({ buttonText, type, paymentMethod, onTransactionAdded }) => {
