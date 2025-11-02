@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Pencil, Trash2, Save } from "lucide-react";
-const API_URL = process.env.API_URL;
 
 
 const History = ({ transactions, onTransactionAdded }) => {
@@ -34,7 +33,7 @@ const History = ({ transactions, onTransactionAdded }) => {
 
     const handleSaveClick = async (id) => {
         try {
-            await fetch(`${API_URL}/api/transactions/${id}`, {
+            await fetch(`https://expenselog-gtax.onrender.com/api/transactions/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -51,7 +50,7 @@ const History = ({ transactions, onTransactionAdded }) => {
     const handleDeleteClick = async (id) => {
         if (window.confirm("Are you sure you want to delete this transaction?")) {
             try {
-                await fetch(`${API_URL}/api/transactions/${id}`, {
+                await fetch(`https://expenselog-gtax.onrender.com/api/transactions/${id}`, {
                     method: 'DELETE',
                 });
                 onTransactionAdded();

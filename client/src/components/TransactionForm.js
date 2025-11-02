@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-const API_URL = process.env.API_URL;
-console.log("API URL:", API_URL);
 
 
 const TransactionForm = ({ buttonText, type, paymentMethod, onTransactionAdded }) => {
@@ -24,7 +22,7 @@ const TransactionForm = ({ buttonText, type, paymentMethod, onTransactionAdded }
     };
 
     try {
-      await fetch(`${API_URL}/api/transactions`, {
+      await fetch(`https://expenselog-gtax.onrender.com/api/transactions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newTransaction),

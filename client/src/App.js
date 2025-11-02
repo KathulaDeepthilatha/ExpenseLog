@@ -6,8 +6,7 @@ import QuickEntry from "./components/QuickEntry";
 import MonthlySetup from "./components/MonthlySetUp";
 import CreditCard from "./components/CreditCard";
 import History from "./components/History";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-const API_URL = process.env.API_URL;
+import { ChevronLeft, ChevronRight } from "lucide-react";   
 
 
 const App = () => {
@@ -45,11 +44,11 @@ const App = () => {
       const year = date.getFullYear();
       const month = date.getMonth() + 1;
       
-      const summaryResponse = await fetch(`${API_URL}/api/summary?year=${year}&month=${month}`);
+      const summaryResponse = await fetch(`https://expenselog-gtax.onrender.com/api/summary?year=${year}&month=${month}`);
       const summaryData = await summaryResponse.json();
       setSummary(summaryData);
 
-      const transactionsResponse = await fetch(`${API_URL}/api/transactions?year=${year}&month=${month}`);
+      const transactionsResponse = await fetch(`https://expenselog-gtax.onrender.com/api/transactions?year=${year}&month=${month}`);
       const transactionsData = await transactionsResponse.json();
       setTransactions(transactionsData);
       
